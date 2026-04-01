@@ -45,16 +45,16 @@ This project deploys a **YOLOv8-based fire and smoke detection model** on a UAV 
 ##  System Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        UAV / Drone                              │
-│                                                                 │
-│  ┌─────────────┐    ┌──────────────┐    ┌──────────────────┐   │
-│  │   Camera    │───▶│  Raspberry   │───▶│  YOLOv8 (INT8)   │   │
-│  │  (Live Feed)│    │   Pi 3 /     │    │  Fire & Smoke    │   │
-│  └─────────────┘    │ Jetson Nano  │    │  Detection Model │   │
-│                     └──────────────┘    └────────┬─────────┘   │
-│                                                  │             │
-│                                         Fire/Smoke Detected?   │
+┌───────────────────────────────────────────────────────────────┐
+│                        UAV / Drone                            │
+│                                                               │
+│  ┌─────────────┐    ┌──────────────┐    ┌──────────────────┐  │
+│  │   Camera    │───▶│  Raspberry   │──▶│  YOLOv8 (INT8)   │  │
+│  │  (Live Feed)│    │   Pi 3 /     │    │  Fire & Smoke    │  │
+│  └─────────────┘    │ Jetson Nano  │    │  Detection Model │  │
+│                     └──────────────┘    └────────┬─────────┘  │
+│                                                  │            │
+│                                         Fire/Smoke Detected?  │
 └─────────────────────────────────────────────────┼─────────────┘
                                                   │ YES
                                     ┌─────────────▼──────────────┐
@@ -65,14 +65,14 @@ This project deploys a **YOLOv8-based fire and smoke detection model** on a UAV 
                                     └─────────────┬──────────────┘
                                                   │
                                     ┌─────────────▼──────────────┐
-                                    │     REST API (HTTP POST)    │
-                                    │  Payload: image + GPS +     │
-                                    │  confidence + timestamp     │
+                                    │     REST API (HTTP POST)   │
+                                    │  Payload: image + GPS +    │
+                                    │  confidence + timestamp    │
                                     └─────────────┬──────────────┘
                                                   │
                                     ┌─────────────▼──────────────┐
-                                    │   Remote Server / Dashboard │
-                                    │   Receives alert in < 2s    │
+                                    │   Remote Server / Dashboard│
+                                    │   Receives alert in < 2s   │
                                     └────────────────────────────┘
 ```
 
