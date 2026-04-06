@@ -22,3 +22,4 @@ Backend: REST API
 ## System Architecture
 
 ![system_architecture Image](images/system_architecture.png)
+
